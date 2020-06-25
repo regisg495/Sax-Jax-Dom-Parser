@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.w3schools.com"
+           xmlns="http://www.w3schools.com"
+           elementFormDefault="qualified"
+>
+
+    <xs:simpleType name="nonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="capitalizedNonEmptyStringWithNumber">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z]*(\s[A-Za-z0-9]*)*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="capitalizedNonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z][a-z]*(\s[A-Z][a-z]*)*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="lowerNonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zà-ú0-9]*(\s[a-zà-ú0-9]*)*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipo">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="caixa"/>
+            <xs:enumeration value="barril"/>
+            <xs:enumeration value="saco"/>
+            <xs:enumeration value="caixa refrigerada"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="unidade">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="peça"/>
+            <xs:enumeration value="kilo"/>
+            <xs:enumeration value="litro"/>
+            <xs:enumeration value="unidade"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="quantidade">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:double">
+                    <xs:attribute name="unidade" type="unidade" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="abstractContainer" abstract="true">
+        <xs:sequence>
+            <xs:element name="responsavel" type="capitalizedNonEmptyStringWithNumber"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+        <xs:attribute name="tipo" type="tipo" use="required"/>
+    </xs:complexType>
+
+    <xs:group name="containerContentGroup">
+        <xs:sequence>
+            <xs:element name="produto" type="lowerNonEmptyString"/>
+            <xs:element ref="quantidade"/>
+            <xs:element name="valor" type="xs:double"/>
+        </xs:sequence>
+    </xs:group>
+
+    <xs:complexType name="container">
+        <xs:complexContent>
+            <xs:extension base="abstractContainer">
+                <xs:sequence>
+                    <xs:element name="destino" type="xs:string"/>
+                    <xs:choice maxOccurs="unbounded">
+                        <xs:group ref="containerContentGroup"/>
+                        <xs:element name="container" type="subcontainer" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="subcontainer">
+        <xs:complexContent>
+            <xs:extension base="abstractContainer">
+                <xs:sequence>
+                    <xs:choice>
+                        <xs:group ref="containerContentGroup"/>
+                        <xs:element name="container" type="subcontainer" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="carga">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="responsavel" type="capitalizedNonEmptyStringWithNumber"/>
+                <xs:element name="origem" type="capitalizedNonEmptyString"/>
+                <xs:element maxOccurs="unbounded" name="container" type="container"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

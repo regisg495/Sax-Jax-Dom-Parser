@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carga xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.w3schools.com"
+       xsi:schemaLocation="http://www.w3schools.com carga.xsd">
+    <responsavel>Empresa 1 SA</responsavel>
+    <origem>Rio Grande</origem>
+    <container tipo="caixa" id="1">
+        <responsavel>Empresa 2 SA</responsavel>
+        <destino>São Paulo</destino>
+        <container tipo="caixa" id="2">
+            <responsavel>Empresa 3 SA</responsavel>
+            <produto>sabonete em barra</produto>
+            <quantidade unidade="unidade">30</quantidade>
+            <valor>55.99</valor>
+        </container>
+        <container tipo="caixa" id="3">
+            <responsavel>Empresa 4 SA</responsavel>
+            <container tipo="caixa" id="4">
+                <responsavel>Empresa 4 SA</responsavel>
+                <produto>terra humus</produto>
+                <quantidade unidade="kilo">37.5</quantidade>
+                <valor>96.58</valor>
+            </container>
+            <container tipo="saco" id="5">
+                <responsavel>Empresa 4 SA</responsavel>
+                <produto>uréia</produto>
+                <quantidade unidade="kilo">40.2</quantidade>
+                <valor>113.82</valor>
+            </container>
+        </container>
+    </container>
+    <container tipo="barril" id="6">
+        <responsavel>Empresa 2 SA</responsavel>
+        <destino>Porto Alegre</destino>
+        <produto>vinagre de vinho tinto</produto>
+        <quantidade unidade="litro">200</quantidade>
+        <valor>546.66</valor>
+    </container>
+    <container tipo="caixa refrigerada" id="7">
+        <responsavel>Empresa 2 SA</responsavel>
+        <destino>Porto Alegre</destino>
+        <container tipo="saco" id="8">
+            <responsavel>Empresa 4 SA</responsavel>
+            <produto>carne moída de 2a</produto>
+            <quantidade unidade="kilo">23.6</quantidade>
+            <valor>258.41</valor>
+        </container>
+        <container tipo="caixa" id="9">
+            <responsavel>Empresa 5 SA</responsavel>
+            <produto>1kg de queijo prato</produto>
+            <quantidade unidade="peça">12</quantidade>
+            <valor>96.58</valor>
+        </container>
+    </container>
+    <!--
+        <container id="10" tipo="caixa">
+            <responsavel>Empresa 4 SA</responsavel>
+            <destino>São Paulo</destino>
+            <container id="12" tipo="caixa">
+                <responsavel>Empresa 2 SA</responsavel>
+                <container id="13" tipo="caixa">
+                    <responsavel>Empresa 5 SA</responsavel>
+                    <container id="14" tipo="caixa refrigerada">
+                        <responsavel>Empresa 1 SA</responsavel>
+                        <produto>cerveja skol litro</produto>
+                        <quantidade unidade="litro">400</quantidade>
+                        <valor>1500.23</valor>
+                    </container>
+                    <container id="15" tipo="caixa refrigerada">
+                        <responsavel>Empresa 1 SA</responsavel>
+                        <produto>cerveja brahma latão</produto>
+                        <quantidade unidade="unidade">600</quantidade>
+                        <valor>1000.23</valor>
+                    </container>
+                    <container id="16" tipo="caixa refrigerada">
+                        <responsavel>Empresa 1 SA</responsavel>
+                        <produto>cerveja budweiser latão</produto>
+                        <quantidade unidade="unidade">400</quantidade>
+                        <valor>400.70</valor>
+                    </container>
+                </container>
+                <container id="17" tipo="caixa">
+                    <responsavel>Empresa 3 SA</responsavel>
+                    <container id="18" tipo="caixa">
+                        <responsavel>Empresa 6 SA</responsavel>
+                        <produto>ritalina 10mg</produto>
+                        <quantidade unidade="unidade">500</quantidade>
+                        <valor>3021.12</valor>
+                    </container>
+                    <container id="19" tipo="caixa">
+                        <responsavel>Empresa 6 SA</responsavel>
+                        <produto>omeprazol 20mg</produto>
+                        <quantidade unidade="unidade">200</quantidade>
+                        <valor>400.12</valor>
+                    </container>
+                    <container id="20" tipo="caixa">
+                        <responsavel>Empresa 6 SA</responsavel>
+                        <produto>diazepam 5mg</produto>
+                        <quantidade unidade="unidade">500</quantidade>
+                        <valor>621.21</valor>
+                    </container>
+                </container>
+            </container>
+            <container id="21" tipo="saco">
+                <responsavel>Empresa 3 SA</responsavel>
+                <produto>farinha de trigo</produto>
+                <quantidade unidade="unidade">400</quantidade>
+                <valor>320.11</valor>
+            </container>
+            <container id="22" tipo="saco">
+                <responsavel>Empresa 3 SA</responsavel>
+                <produto>farinha de mandioca</produto>
+                <quantidade unidade="unidade">200</quantidade>
+                <valor>156.12</valor>
+            </container>
+        </container>
+        !-->
+</carga>
