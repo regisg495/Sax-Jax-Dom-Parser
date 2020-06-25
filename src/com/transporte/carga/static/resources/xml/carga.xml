@@ -52,7 +52,6 @@
             <valor>96.58</valor>
         </container>
     </container>
-    <!--
         <container id="10" tipo="caixa">
             <responsavel>Empresa 4 SA</responsavel>
             <destino>São Paulo</destino>
@@ -114,5 +113,4 @@
                 <valor>156.12</valor>
             </container>
         </container>
-        !-->
 </carga>
